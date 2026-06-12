@@ -184,17 +184,6 @@ padding: 12px 16px; display: flex; align-items: center; gap: 10px;
 .hero-photo .badge b { color: var(--navy); font-size: 14px; font-weight: 600; }
 .hero-photo .badge span { font-size: 12px; color: var(--text); display: block; }
 
-.scroll-hint {
-position: absolute; bottom: 30px; left: clamp(20px, 5vw, 64px);
-font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--text);
-display: flex; align-items: center; gap: 12px; z-index: 1;
-}
-.scroll-hint::after {
-content: ''; width: 1.5px; height: 40px; background: var(--grad);
-animation: scrollPulse 1.8s ease-in-out infinite;
-}
-@keyframes scrollPulse { 0%,100% { transform: scaleY(.4); opacity:.4 } 50% { transform: scaleY(1); opacity:1 } }
-
 /* ---------- Marquee ---------- */
 .marquee {
 padding: 20px 0; border-top: 1px solid rgba(38,34,97,.08); border-bottom: 1px solid rgba(38,34,97,.08);
@@ -344,7 +333,6 @@ box-shadow: -24px 0 70px -34px rgba(38,34,97,.4); margin: 0;
 body { overflow-x: hidden; }
 section { padding: 64px 20px; }
 .hero { padding: 96px 20px 48px; min-height: auto; }
-.scroll-hint { display: none; }
 .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
 .hero-tagline { font-size: 1.15rem; max-width: 100%; }
 .hero-sub { max-width: 100%; }
@@ -359,7 +347,7 @@ section { padding: 64px 20px; }
 
 @media (prefers-reduced-motion: reduce) {
 html { scroll-behavior: auto; }
-.scroll-hint::after, .wave { animation: none !important; }
+.wave { animation: none !important; }
 }
 </style>
 </head>
@@ -398,7 +386,7 @@ html { scroll-behavior: auto; }
 <p>I'm currently a <strong>Product Manager at <a class="inline-link" href="https://www.sprout.co.id" target="_blank" rel="noopener">Sprout</a></strong>, where I work with teams to build digital products and experiences.</p>
 <p>My journey has taken me through branding, design, development, entrepreneurship, and product management — giving me a broad perspective on how ideas evolve into products people genuinely use and value.</p>
 </div>
-<p class="hero-meta reveal">📍 Based in Serpong, <br>Indonesia</p>
+<p class="hero-meta reveal">📍 Based in Serpong, Indonesia</p>
 </div>
 <div class="hero-photo reveal">
 <div class="ring"></div>
@@ -411,7 +399,6 @@ html { scroll-behavior: auto; }
 </div>
 </div>
 </div>
-<div class="scroll-hint">Scroll</div>
 </header>
 
 <!-- ===== MARQUEE ===== -->
@@ -430,7 +417,7 @@ html { scroll-behavior: auto; }
 <h2 class="section-title reveal">🧩 A career built <em>one layer at a time</em></h2>
 </div>
 <div class="about-copy">
-<p class="reveal">My career didn't follow a straight line, and that's something I've come to appreciate.</p>
+<p class="reveal">My career didn't follow a straight line,<br>and that's something I've come to appreciate.</p>
 <p class="reveal">I started in branding, learning how businesses communicate and how people form perceptions. That curiosity naturally led me into design, where I focused on creating clearer and more meaningful experiences.</p>
 <p class="reveal">As I became more interested in how products were actually built, I taught myself web development so I could better understand the connection between design and technology. Later, I specialized in UX/UI design, combining creativity with user behavior and product thinking.</p>
 <p class="reveal">Today, as a Product Manager, I bring together lessons from each chapter of that journey — working across research, strategy, design, engineering, and business to help teams build products that create real value.</p>
