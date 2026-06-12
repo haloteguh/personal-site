@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teguh Arianto — Product Manager & Maker</title>
-<meta name="description" content="Teguh Arianto (@haloteguh) — Sr. Product Manager at Sprout. Ex-designer, ex-developer, founder. Shipping web and mobile apps from Serpong, Indonesia.">
+<meta name="description" content="Teguh Arianto (@haloteguh) — Sr. Product Manager at Sprout. I build products, businesses, and systems that help people solve real problems. Based in Serpong, Indonesia.">
 <meta property="og:title" content="Teguh Arianto — Product Manager & Maker">
-<meta property="og:description" content="I turn messy problems into products people actually use.">
+<meta property="og:description" content="I build products, businesses, and systems that help people solve real problems.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/jpeg" href="haloteguh.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,7 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 20px clamp(20px, 5vw, 64px);
+    padding: 18px clamp(20px, 5vw, 64px);
     backdrop-filter: blur(12px);
     background: rgba(255,255,255,.72);
     border-bottom: 1px solid rgba(38,34,97,.06);
@@ -68,7 +68,7 @@
   .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .nav-brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
   .nav-brand span { font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--navy); letter-spacing: .02em; }
-  .nav-links { display: flex; gap: clamp(16px, 3vw, 36px); }
+  .nav-links { display: flex; gap: clamp(14px, 3vw, 32px); }
   .nav-links a {
     position: relative; text-decoration: none; color: var(--ink);
     font-size: 14px; font-weight: 500; padding: 4px 0;
@@ -81,220 +81,255 @@
   .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
 
   /* ---------- Layout ---------- */
-  section { position: relative; padding: clamp(80px, 12vw, 160px) clamp(20px, 5vw, 64px); }
-  .container { max-width: 1200px; margin: 0 auto; }
+  section { position: relative; padding: clamp(72px, 11vw, 150px) clamp(20px, 5vw, 64px); }
+  .container { max-width: 1180px; margin: 0 auto; }
   .section-label {
     display: inline-flex; align-items: center; gap: 10px;
     font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
     color: var(--purple); margin-bottom: 28px;
   }
   .section-label::before { content: ''; width: 28px; height: 1.5px; background: var(--grad); display: inline-block; }
+  h2.section-title {
+    font-family: var(--serif); font-weight: 400; color: var(--ink); line-height: 1.15;
+    font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.01em; margin-bottom: 24px;
+  }
+  h2.section-title em { font-style: italic; color: var(--purple); }
 
   /* ---------- Hero ---------- */
-  .hero {
-    min-height: 100svh; display: flex; align-items: center;
-    padding-top: 120px; overflow: hidden;
-  }
+  .hero { min-height: 100svh; display: flex; align-items: center; padding: 120px clamp(20px, 5vw, 64px) 60px; overflow: hidden; }
   #hero-canvas { position: absolute; inset: 0; z-index: 0; }
-  .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+  .hero-inner {
+    position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 6vw, 80px); align-items: center;
+  }
   .hero-greeting {
     display: inline-flex; align-items: center; gap: 10px;
     font-size: 15px; font-weight: 600; color: var(--navy);
     background: rgba(101,45,140,.06); border: 1px solid rgba(101,45,140,.12);
-    padding: 8px 18px; border-radius: 100px; margin-bottom: 32px;
+    padding: 8px 18px; border-radius: 100px; margin-bottom: 28px;
   }
-  .wave { display: inline-block; transform-origin: 70% 70%; }
+  .wave {
+    display: inline-block; transform-origin: 70% 70%;
+    animation: wave 2.6s ease-in-out 1.2s infinite;
+  }
+  @keyframes wave {
+    0%, 65%, 100% { transform: rotate(0deg); }
+    70% { transform: rotate(14deg); }
+    78% { transform: rotate(-8deg); }
+    86% { transform: rotate(12deg); }
+    94% { transform: rotate(-4deg); }
+  }
   .hero h1 {
     font-family: var(--serif); font-weight: 400;
-    font-size: clamp(2.5rem, 7.2vw, 5.6rem);
-    line-height: 1.08; color: var(--ink); letter-spacing: -.015em;
-    max-width: 16ch;
+    font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+    line-height: 1.05; color: var(--ink); letter-spacing: -.02em; margin-bottom: 22px;
   }
   .hero h1 .grad {
     background: var(--grad); -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; font-style: italic; font-weight: 500;
   }
-  .hero h1 .line { display: block; overflow: hidden; }
+  .hero h1 .line { display: block; }
   .hero h1 .line > span { display: inline-block; }
-  .hero-sub {
-    margin-top: 36px; max-width: 52ch; font-size: clamp(1rem, 1.4vw, 1.15rem);
+  .hero-tagline {
+    font-family: var(--serif); font-weight: 300; font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+    line-height: 1.4; color: var(--ink); max-width: 22ch; margin-bottom: 26px;
   }
+  .hero-sub { max-width: 46ch; font-size: clamp(.98rem, 1.2vw, 1.08rem); }
+  .hero-sub p { margin-bottom: 14px; }
   .hero-sub strong { color: var(--navy); font-weight: 600; }
-  .hero-meta { margin-top: 28px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--text); }
+  .hero-meta { margin-top: 24px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--text); }
+  .inline-link {
+    text-decoration: none; color: var(--purple);
+    background-image: var(--grad); background-size: 100% 1.5px;
+    background-repeat: no-repeat; background-position: 0 100%;
+    transition: opacity .25s, background-size .35s cubic-bezier(.65,0,.35,1);
+  }
+  .inline-link strong { color: var(--purple); }
+  .inline-link:hover { opacity: .72; }
+
+  /* Hero photo */
+  .hero-photo { position: relative; justify-self: center; width: 100%; max-width: 380px; }
+  .hero-photo .frame {
+    position: relative; border-radius: 26px; overflow: hidden;
+    aspect-ratio: 3 / 4; background: var(--grad);
+    box-shadow: 0 40px 80px -32px rgba(101,45,140,.45);
+  }
+  .hero-photo .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-photo .ring {
+    position: absolute; inset: -14px; border-radius: 32px;
+    border: 1.5px solid rgba(101,45,140,.18); z-index: -1;
+  }
+  .hero-photo .badge {
+    position: absolute; bottom: 16px; left: 16px; right: 16px;
+    backdrop-filter: blur(10px); background: rgba(255,255,255,.82);
+    border: 1px solid rgba(255,255,255,.6); border-radius: 14px;
+    padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .hero-photo .badge img { width: 30px; height: 30px; border-radius: 50%; }
+  .hero-photo .badge b { color: var(--navy); font-size: 14px; font-weight: 600; }
+  .hero-photo .badge span { font-size: 12px; color: var(--text); display: block; }
+
   .scroll-hint {
-    position: absolute; bottom: 36px; left: clamp(20px, 5vw, 64px);
+    position: absolute; bottom: 30px; left: clamp(20px, 5vw, 64px);
     font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--text);
     display: flex; align-items: center; gap: 12px; z-index: 1;
   }
   .scroll-hint::after {
-    content: ''; width: 1.5px; height: 44px; background: var(--grad);
+    content: ''; width: 1.5px; height: 40px; background: var(--grad);
     animation: scrollPulse 1.8s ease-in-out infinite;
   }
   @keyframes scrollPulse { 0%,100% { transform: scaleY(.4); opacity:.4 } 50% { transform: scaleY(1); opacity:1 } }
 
   /* ---------- Marquee ---------- */
   .marquee {
-    padding: 22px 0; border-top: 1px solid rgba(38,34,97,.08); border-bottom: 1px solid rgba(38,34,97,.08);
+    padding: 20px 0; border-top: 1px solid rgba(38,34,97,.08); border-bottom: 1px solid rgba(38,34,97,.08);
     overflow: hidden; white-space: nowrap; background: #fff;
   }
   .marquee-track { display: inline-block; will-change: transform; }
-  .marquee-track span {
-    font-family: var(--serif); font-size: 20px; color: var(--navy);
-    margin-right: 56px; opacity: .8;
-  }
+  .marquee-track span { font-family: var(--serif); font-size: 19px; color: var(--navy); margin-right: 56px; opacity: .8; }
   .marquee-track span i { font-style: normal; color: var(--blue); margin-right: 56px; }
 
-  /* ---------- About / Arc ---------- */
-  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(36px, 6vw, 90px); }
-  .about-sticky h2 {
-    font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 3.2rem);
-    color: var(--ink); line-height: 1.15;
-  }
-  .about-sticky h2 em { font-style: italic; color: var(--purple); }
-  .about-copy p { margin-bottom: 24px; font-size: clamp(1rem, 1.3vw, 1.12rem); }
+  /* ---------- About ---------- */
+  .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 6vw, 80px); }
+  .about-copy p { margin-bottom: 22px; font-size: clamp(1rem, 1.25vw, 1.1rem); }
   .about-copy p strong { color: var(--navy); font-weight: 600; }
-  .inline-link {
-    text-decoration: none; background-image: var(--grad);
-    background-size: 100% 1.5px; background-repeat: no-repeat; background-position: 0 100%;
-    transition: background-size .35s cubic-bezier(.65,0,.35,1);
-  }
-  .inline-link strong {
-    background: var(--grad); -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .inline-link:hover { background-size: 100% 100%; }
-  .inline-link:hover strong { -webkit-text-fill-color: #fff; transition: -webkit-text-fill-color .2s; }
-  .arc-steps { margin-top: 48px; display: flex; flex-direction: column; }
-  .arc-step {
-    display: flex; align-items: baseline; gap: 20px;
-    padding: 18px 0; border-bottom: 1px solid rgba(38,34,97,.08);
+
+  /* Career timeline */
+  .timeline { margin-top: 8px; display: flex; flex-direction: column; }
+  .tl-step {
+    display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: start;
+    padding: 22px 0; border-bottom: 1px solid rgba(38,34,97,.08);
     transition: padding-left .35s cubic-bezier(.65,0,.35,1);
   }
-  .arc-step:hover { padding-left: 14px; }
-  .arc-step .num { font-family: var(--serif); font-size: 14px; color: var(--blue); min-width: 28px; }
-  .arc-step .role { font-weight: 600; color: var(--ink); font-size: 15px; min-width: 180px; }
-  .arc-step .gain { font-size: 14px; }
-  @media (max-width: 860px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .arc-step .role { min-width: 0; }
-    .arc-step { flex-wrap: wrap; gap: 8px 16px; }
+  .tl-step:hover { padding-left: 12px; }
+  .tl-step .ic {
+    width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+    font-size: 24px; background: rgba(101,45,140,.07); border: 1px solid rgba(101,45,140,.1);
   }
+  .tl-step .role { font-weight: 600; color: var(--ink); font-size: 1.02rem; }
+  .tl-step .gain { font-size: .95rem; margin-top: 2px; }
 
-  /* ---------- Pull quote ---------- */
-  .quote { text-align: center; background: linear-gradient(180deg, #fff 0%, #faf8fc 50%, #fff 100%); }
-  .quote blockquote {
-    font-family: var(--serif); font-weight: 300; font-style: italic;
-    font-size: clamp(1.7rem, 4.4vw, 3.4rem); line-height: 1.3; color: var(--ink);
-    max-width: 22ch; margin: 0 auto;
+  /* ---------- Businesses ---------- */
+  .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
+  .biz-card {
+    border: 1px solid rgba(38,34,97,.1); border-radius: 18px; padding: 30px;
+    transition: transform .35s cubic-bezier(.65,0,.35,1), box-shadow .35s, border-color .35s;
   }
-  .quote blockquote .grad {
-    background: var(--grad); -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; font-weight: 500;
-  }
-  .quote cite { display: block; margin-top: 28px; font-style: normal; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; }
+  .biz-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -22px rgba(101,45,140,.22); border-color: rgba(37,165,220,.35); }
+  .biz-card .emoji { font-size: 30px; }
+  .biz-card h3 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; color: var(--navy); margin: 12px 0 8px; }
+  .biz-card h3 a { color: var(--navy); text-decoration: none; background-image: var(--grad); background-size: 0 1.5px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .35s; }
+  .biz-card:hover h3 a { background-size: 100% 1.5px; }
+  .biz-card p { font-size: .98rem; }
 
-  /* ---------- Attributes ---------- */
-  .attr-list { border-top: 1px solid rgba(38,34,97,.1); }
-  .attr-row {
-    position: relative; display: grid; grid-template-columns: 64px 1fr 1.4fr;
-    align-items: center; gap: 24px; padding: 30px 16px;
-    border-bottom: 1px solid rgba(38,34,97,.1); overflow: hidden; cursor: default;
+  /* ---------- Values ---------- */
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 16px; }
+  .value-card {
+    position: relative; border: 1px solid rgba(38,34,97,.1); border-radius: 18px; padding: 30px 26px;
+    overflow: hidden; transition: transform .35s cubic-bezier(.65,0,.35,1), box-shadow .35s, border-color .35s;
   }
-  .attr-row::before {
-    content: ''; position: absolute; inset: 0; background: var(--grad);
-    transform: translateY(101%); transition: transform .45s cubic-bezier(.65,0,.35,1); z-index: 0;
-  }
-  .attr-row:hover::before { transform: translateY(0); }
-  .attr-row > * { position: relative; z-index: 1; transition: color .35s; }
-  .attr-row .idx { font-family: var(--serif); font-size: 15px; color: var(--blue); }
-  .attr-row .name { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 2.2rem); color: var(--ink); font-weight: 400; }
-  .attr-row .desc { font-size: 15px; }
-  .attr-row:hover .idx, .attr-row:hover .name, .attr-row:hover .desc { color: #fff; }
-  @media (max-width: 720px) {
-    .attr-row { grid-template-columns: 40px 1fr; }
-    .attr-row .desc { grid-column: 2; margin-top: -8px; }
-  }
+  .value-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -22px rgba(101,45,140,.2); border-color: rgba(37,165,220,.35); }
+  .value-card .emoji { font-size: 28px; }
+  .value-card h3 { font-family: var(--serif); font-weight: 500; font-size: 1.25rem; color: var(--navy); margin: 12px 0 8px; }
+  .value-card p { font-size: .96rem; }
 
   /* ---------- Skills ---------- */
-  .skills-intro { max-width: 56ch; font-size: clamp(1.05rem, 1.5vw, 1.25rem); margin-bottom: 56px; color: var(--ink); font-family: var(--serif); font-weight: 300; }
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 16px; }
   .skill-card {
-    border: 1px solid rgba(38,34,97,.1); border-radius: 18px; padding: 36px 30px;
+    border: 1px solid rgba(38,34,97,.1); border-radius: 18px; padding: 32px 30px;
     background: #fff; transition: transform .35s cubic-bezier(.65,0,.35,1), box-shadow .35s, border-color .35s;
   }
-  .skill-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 48px -20px rgba(101,45,140,.22);
-    border-color: rgba(37,165,220,.35);
-  }
-  .skill-card h3 {
-    font-family: var(--serif); font-weight: 500; font-size: 1.3rem; color: var(--navy);
-    margin-bottom: 6px;
-  }
-  .skill-card .bar { width: 36px; height: 3px; background: var(--grad); border-radius: 2px; margin-bottom: 22px; }
+  .skill-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -20px rgba(101,45,140,.22); border-color: rgba(37,165,220,.35); }
+  .skill-card .head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .skill-card .head .emoji { font-size: 24px; }
+  .skill-card h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; color: var(--navy); }
   .skill-card ul { list-style: none; }
-  .skill-card li { padding: 9px 0; font-size: 15px; border-bottom: 1px dashed rgba(38,34,97,.08); }
+  .skill-card li { padding: 8px 0; font-size: 15px; border-bottom: 1px dashed rgba(38,34,97,.08); }
   .skill-card li:last-child { border-bottom: 0; }
-  .skill-card li strong { color: var(--ink); font-weight: 500; }
-  @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; } }
 
-  /* ---------- Contact ---------- */
-  .contact { text-align: center; }
-  .contact h2 {
+  /* ---------- Learning ---------- */
+  .learning { background: linear-gradient(180deg, #fff 0%, #faf8fc 50%, #fff 100%); }
+  .learn-list { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px; }
+  .learn-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid rgba(38,34,97,.12); border-radius: 100px; padding: 12px 22px;
+    font-size: 15px; color: var(--ink); background: #fff;
+    transition: border-color .3s, transform .3s;
+  }
+  .learn-chip:hover { border-color: var(--blue); transform: translateY(-3px); }
+
+  /* ---------- Connect ---------- */
+  .connect { text-align: center; }
+  .connect h2 {
     font-family: var(--serif); font-weight: 400;
-    font-size: clamp(3rem, 10vw, 7.5rem); color: var(--ink); line-height: 1.05; letter-spacing: -.02em;
+    font-size: clamp(2.6rem, 8vw, 5.6rem); color: var(--ink); line-height: 1.05; letter-spacing: -.02em;
   }
-  .contact h2 .grad {
-    background: var(--grad); -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; font-style: italic;
-  }
-  .contact p { max-width: 52ch; margin: 28px auto 48px; }
-  .contact-actions { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  .connect h2 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+  .connect p { max-width: 50ch; margin: 26px auto 44px; }
+  .contact-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .btn {
     --x: 0px; --y: 0px;
     position: relative; display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 32px; border-radius: 100px; text-decoration: none;
-    font-weight: 600; font-size: 15px;
-    transform: translate(var(--x), var(--y));
-    transition: box-shadow .3s;
-    will-change: transform;
+    padding: 15px 30px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 15px;
+    transform: translate(var(--x), var(--y)); transition: box-shadow .3s; will-change: transform;
   }
   .btn-primary { background: var(--grad); color: #fff; }
   .btn-primary:hover { box-shadow: 0 16px 36px -12px rgba(101,45,140,.55); }
   .btn-ghost { border: 1.5px solid rgba(38,34,97,.18); color: var(--navy); background: #fff; }
   .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
 
+  /* ---------- Coffee invite ---------- */
+  .coffee {
+    margin: 0 auto; max-width: 760px; text-align: center;
+    border: 1px solid rgba(38,34,97,.1); border-radius: 24px; padding: clamp(32px, 6vw, 56px);
+    background: linear-gradient(135deg, rgba(101,45,140,.04), rgba(37,165,220,.04));
+  }
+  .coffee .emoji { font-size: 36px; }
+  .coffee h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--ink); margin: 14px 0 16px; }
+  .coffee p { max-width: 52ch; margin: 0 auto 26px; }
+
   /* ---------- Footer ---------- */
   footer {
-    display: flex; flex-direction: column; align-items: center; gap: 16px;
-    padding: 48px 24px 56px; border-top: 1px solid rgba(38,34,97,.08);
-    font-size: 13px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    padding: 46px 24px 54px; border-top: 1px solid rgba(38,34,97,.08); font-size: 13px; text-align: center;
   }
   footer img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
   footer .handle { color: var(--navy); font-weight: 600; font-size: 14px; }
 
-  /* ---------- Reveal defaults (no-JS safe) ---------- */
-  .reveal { opacity: 0; transform: translateY(36px); }
-  .no-js .reveal, .reduced .reveal { opacity: 1; transform: none; }
+  /* ---------- Reveal defaults ---------- */
+  .reveal { opacity: 0; transform: translateY(34px); }
+  .reduced .reveal { opacity: 1; transform: none; }
 
-  .hero-sub .hero-link {
-    color: var(--purple); text-decoration: none;
-    background-image: var(--grad); background-size: 100% 1.5px;
-    background-repeat: no-repeat; background-position: 0 100%;
-    transition: opacity .25s;
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 980px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-photo { order: -1; max-width: 300px; }
+    .hero { padding-top: 110px; text-align: left; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  .hero-sub .hero-link:hover { opacity: .7; }
-
-  /* ---------- Mobile tuning ---------- */
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .biz-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
   @media (max-width: 600px) {
     body { overflow-x: hidden; }
-    .hero h1 { font-size: clamp(1.85rem, 8.6vw, 3rem); max-width: 100%; }
-    .hero { padding-top: 104px; }
-    .contact h2 { font-size: clamp(2.6rem, 17vw, 4rem); }
-    .quote blockquote { font-size: clamp(1.5rem, 7vw, 2.2rem); }
-    .attr-row { padding: 22px 4px; gap: 14px; }
-    nav { padding: 16px 20px; }
-    .nav-links { gap: 16px; }
+    section { padding: 64px 20px; }
+    .hero { padding: 96px 20px 48px; min-height: auto; }
+    .scroll-hint { display: none; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+    .hero-tagline { font-size: 1.15rem; max-width: 100%; }
+    .hero-sub { max-width: 100%; }
+    .hero-photo { max-width: 260px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .connect h2 { font-size: clamp(2.4rem, 16vw, 3.4rem); }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 13px; }
+    .tl-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    .tl-step .ic { width: 44px; height: 44px; font-size: 20px; }
+    .contact-actions { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -314,8 +349,9 @@
   </a>
   <div class="nav-links">
     <a href="#about">About</a>
+    <a href="#values">Values</a>
     <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <a href="#connect">Connect</a>
   </div>
 </nav>
 
@@ -323,18 +359,28 @@
 <header class="hero" id="top">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
-    <div class="hero-greeting reveal"><span class="wave">👋</span> Halo, selamat datang</div>
-    <h1 aria-label="I'm Teguh. I build products the way a maker would, because I am one.">
-      <span class="line"><span>I'm Teguh. I build</span></span>
-      <span class="line"><span>products the way</span></span>
-      <span class="line"><span>a <span class="grad">maker</span> would —</span></span>
-      <span class="line"><span>because I am one.</span></span>
-    </h1>
-    <p class="hero-sub reveal">
-      <strong>Sr. Product Manager at <a class="hero-link" href="https://sprout.co.id/en" target="_blank" rel="noopener">Sprout</a></strong>, shipping web and mobile apps.
-      Ex-designer, ex-developer, founder of two real businesses.
-    </p>
-    <p class="hero-meta reveal">Serpong, Indonesia · GMT+7</p>
+    <div class="hero-text">
+      <div class="hero-greeting reveal"><span class="wave">👋</span> Halo</div>
+      <h1 class="reveal">
+        <span class="line"><span>Hi, I'm <span class="grad">Teguh</span>.</span></span>
+      </h1>
+      <p class="hero-tagline reveal">I build products, businesses, and systems that help people solve real problems. 🚀</p>
+      <div class="hero-sub reveal">
+        <p>I'm currently a <strong>Sr. Product Manager at <a class="inline-link" href="https://www.sprout.co.id" target="_blank" rel="noopener">Sprout</a></strong>, where I work with teams to build digital products and experiences.</p>
+        <p>My journey has taken me through branding, design, development, entrepreneurship, and product management — giving me a broad perspective on how ideas evolve into products people genuinely use and value.</p>
+      </div>
+      <p class="hero-meta reveal">📍 Based in Serpong, Indonesia</p>
+    </div>
+    <div class="hero-photo reveal">
+      <div class="ring"></div>
+      <div class="frame">
+        <img src="haloteguh_pic.png" alt="Teguh Arianto" loading="eager">
+      </div>
+      <div class="badge">
+        <img src="haloteguh.jpg" alt="@haloteguh">
+        <div><b>Teguh Arianto</b><span>Sr. Product Manager</span></div>
+      </div>
+    </div>
   </div>
   <div class="scroll-hint">Scroll</div>
 </header>
@@ -342,52 +388,67 @@
 <!-- ===== MARQUEE ===== -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track" id="marquee-track">
-    <span>Product Strategy <i>·</i></span><span>UX/UI Design <i>·</i></span><span>Web & Mobile Apps <i>·</i></span><span>Research <i>·</i></span><span>Entrepreneurship <i>·</i></span><span>Product Strategy <i>·</i></span><span>UX/UI Design <i>·</i></span><span>Web & Mobile Apps <i>·</i></span><span>Research <i>·</i></span><span>Entrepreneurship <i>·</i></span>
+    <span>Product Strategy <i>·</i></span><span>UX/UI Design <i>·</i></span><span>Web & Mobile <i>·</i></span><span>Research <i>·</i></span><span>Entrepreneurship <i>·</i></span><span>Product Strategy <i>·</i></span><span>UX/UI Design <i>·</i></span><span>Web & Mobile <i>·</i></span><span>Research <i>·</i></span><span>Entrepreneurship <i>·</i></span>
   </div>
 </div>
 
 <!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="container">
-    <div class="section-label reveal">The arc</div>
     <div class="about-grid">
-      <div class="about-sticky">
-        <h2 class="reveal">My career looks like a zigzag — <em>until you see the pattern.</em></h2>
+      <div>
+        <div class="section-label reveal">About</div>
+        <h2 class="section-title reveal">🧩 A career built <em>one layer at a time</em></h2>
       </div>
       <div class="about-copy">
-        <p class="reveal">I started as a branding analyst, learning how brands actually behave. Became a graphic designer and built visual discipline. Taught myself to code so I could build what I designed. Specialized in UX/UI to design for real user behavior. Today I lead product strategy as a <strong>Sr. Product Manager at <a class="inline-link" href="https://sprout.co.id/en" target="_blank" rel="noopener">Sprout</a></strong> — shipping both web and mobile apps, from first insight to release.</p>
-        <p class="reveal">Not a detour — a compounding career. Every role raised the value of the one before it.</p>
-        <p class="reveal">Outside the corporate track, I run two businesses of my own: <a class="inline-link" href="https://maps.app.goo.gl/anFS83mQqHZhzuaP9" target="_blank" rel="noopener"><strong>tocoffee</strong></a>, a coffee shop, and <a class="inline-link" href="https://www.instagram.com/gouw.id" target="_blank" rel="noopener"><strong>Gouw.id</strong></a>, premium local snacks. Real operations, real inventory, real customers. When it's your own money on the shelf, you learn what "user-centric" actually costs.</p>
-        <div class="arc-steps">
-          <div class="arc-step reveal"><span class="num">01</span><span class="role">Jr. Branding Analyst</span><span class="gain">learned how brands behave</span></div>
-          <div class="arc-step reveal"><span class="num">02</span><span class="role">Graphic Designer</span><span class="gain">built visual discipline</span></div>
-          <div class="arc-step reveal"><span class="num">03</span><span class="role">Web Developer</span><span class="gain">built what I designed</span></div>
-          <div class="arc-step reveal"><span class="num">04</span><span class="role">UX/UI Designer</span><span class="gain">designed for real behavior</span></div>
-          <div class="arc-step reveal"><span class="num">05</span><span class="role">Sr. Product Manager</span><span class="gain">leads product strategy</span></div>
+        <p class="reveal">My career didn't follow a straight line, and that's something I've come to appreciate.</p>
+        <p class="reveal">I started in branding, learning how businesses communicate and how people form perceptions. That curiosity naturally led me into design, where I focused on creating clearer and more meaningful experiences.</p>
+        <p class="reveal">As I became more interested in how products were actually built, I taught myself web development so I could better understand the connection between design and technology. Later, I specialized in UX/UI design, combining creativity with user behavior and product thinking.</p>
+        <p class="reveal">Today, as a Sr. Product Manager, I bring together lessons from each chapter of that journey — working across research, strategy, design, engineering, and business to help teams build products that create real value.</p>
+        <div class="timeline">
+          <div class="tl-step reveal"><div class="ic">🎨</div><div><div class="role">Branding Analyst</div><div class="gain">Learned how businesses communicate and how brands are perceived.</div></div></div>
+          <div class="tl-step reveal"><div class="ic">🖌️</div><div><div class="role">Graphic Designer</div><div class="gain">Developed visual thinking, communication, and attention to detail.</div></div></div>
+          <div class="tl-step reveal"><div class="ic">💻</div><div><div class="role">Web Developer</div><div class="gain">Learned how digital products are built and maintained.</div></div></div>
+          <div class="tl-step reveal"><div class="ic">✨</div><div><div class="role">UX/UI Designer</div><div class="gain">Focused on understanding users and designing better experiences.</div></div></div>
+          <div class="tl-step reveal"><div class="ic">📦</div><div><div class="role">Product Manager</div><div class="gain">Bringing together strategy, design, technology, and business outcomes.</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PULL QUOTE ===== -->
-<section class="quote">
-  <blockquote class="reveal">
-    "<span class="grad">Accuracy is kindness.</span> Being precise is how you respect other people's time."
-  </blockquote>
-  <cite class="reveal">— a core belief</cite>
+<!-- ===== BEYOND DAY JOB ===== -->
+<section id="businesses">
+  <div class="container">
+    <div class="section-label reveal">Beyond my day job</div>
+    <h2 class="section-title reveal">☕ Building things of <em>my own</em></h2>
+    <p class="reveal" style="max-width:60ch;">Alongside my professional work, I've also built and operated a few businesses of my own and with partners. Running them has given me a different perspective on product thinking — beyond roadmaps and metrics, I've learned about customer relationships, operations, inventory, cash flow, and the everyday realities of creating value for people.</p>
+    <div class="biz-grid">
+      <div class="biz-card reveal">
+        <div class="emoji">☕</div>
+        <h3><a href="https://maps.app.goo.gl/JRAu1EZqMJ6We7X17" target="_blank" rel="noopener">tocoffee</a></h3>
+        <p>A neighborhood coffee shop — a place for meeting people, exchanging ideas, and grounding product thinking in real-world operations.</p>
+      </div>
+      <div class="biz-card reveal">
+        <div class="emoji">🍪</div>
+        <h3><a href="https://www.instagram.com/gouw.id" target="_blank" rel="noopener">Gouw.id</a></h3>
+        <p>A local snack brand inspired by Indonesian flavors and culture — built around brand, customers, and the realities of retail.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ===== ATTRIBUTES ===== -->
-<section id="attributes">
+<!-- ===== VALUES ===== -->
+<section id="values">
   <div class="container">
-    <div class="section-label reveal">What I bring</div>
-    <div class="attr-list">
-      <div class="attr-row reveal"><span class="idx">01</span><span class="name">Precise</span><span class="desc">Catches what others miss. Demands clear specs.</span></div>
-      <div class="attr-row reveal"><span class="idx">02</span><span class="name">Multi-disciplinary</span><span class="desc">Strategy, design, code, and physical retail.</span></div>
-      <div class="attr-row reveal"><span class="idx">03</span><span class="name">Direct</span><span class="desc">Challenges bad ideas politely but firmly.</span></div>
-      <div class="attr-row reveal"><span class="idx">04</span><span class="name">Structured</span><span class="desc">Builds the system once, then moves fast within it.</span></div>
-      <div class="attr-row reveal"><span class="idx">05</span><span class="name">Action-oriented</span><span class="desc">Starts before ready. Ships before perfect.</span></div>
+    <div class="section-label reveal">What guides my work</div>
+    <h2 class="section-title reveal">🌱 Principles I <em>come back to</em></h2>
+    <div class="values-grid">
+      <div class="value-card reveal"><div class="emoji">🔍</div><h3>Curiosity</h3><p>I enjoy learning how things work, why people behave the way they do, and how products can create better experiences.</p></div>
+      <div class="value-card reveal"><div class="emoji">🎯</div><h3>Clarity</h3><p>Whether it's a strategy, a roadmap, or a conversation, clarity helps teams move faster and make better decisions.</p></div>
+      <div class="value-card reveal"><div class="emoji">🤝</div><h3>Ownership</h3><p>I care about outcomes, not just deliverables — from problem discovery through execution and iteration.</p></div>
+      <div class="value-card reveal"><div class="emoji">👥</div><h3>Collaboration</h3><p>Great products are rarely built by individuals. They're built by teams with different perspectives working toward the same goal.</p></div>
+      <div class="value-card reveal"><div class="emoji">📚</div><h3>Continuous Learning</h3><p>Every role I've had has taught me something valuable. I still approach new challenges with the mindset of a student.</p></div>
     </div>
   </div>
 </section>
@@ -395,58 +456,98 @@
 <!-- ===== SKILLS ===== -->
 <section id="skills">
   <div class="container">
-    <div class="section-label reveal">Skills</div>
-    <p class="skills-intro reveal">The best PMs have built something with their own hands. I've built with all of mine.</p>
+    <div class="section-label reveal">Skills & experience</div>
+    <h2 class="section-title reveal">🛠️ What I bring to the <em>table</em></h2>
+    <p class="reveal" style="max-width:58ch;">Over the years I've worked across branding, design, development, business operations, and product management. Each experience continues to influence how I approach problem-solving today.</p>
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <h3>Product</h3>
-        <div class="bar"></div>
+        <div class="head"><span class="emoji">📦</span><h3>Product</h3></div>
         <ul>
-          <li><strong>Product Strategy & Roadmapping</strong> — web & mobile apps, end to end</li>
-          <li><strong>User Research & Discovery</strong></li>
-          <li><strong>Prioritization & Data Analysis</strong> — RICE, experimentation</li>
-          <li><strong>Stakeholder Alignment</strong> — specs that don't leave room for guessing</li>
+          <li>Product Strategy & Roadmapping</li>
+          <li>Product Discovery & User Research</li>
+          <li>Prioritization & Decision Making</li>
+          <li>Stakeholder Management</li>
+          <li>Product Documentation & Specifications</li>
+          <li>Experimentation & Continuous Improvement</li>
         </ul>
       </div>
       <div class="skill-card reveal">
-        <h3>Design</h3>
-        <div class="bar"></div>
+        <div class="head"><span class="emoji">🎨</span><h3>Design</h3></div>
         <ul>
-          <li><strong>UX/UI Design</strong> — flows, wireframes, interfaces</li>
-          <li><strong>Design Systems & Branding</strong></li>
-          <li><strong>Prototyping</strong> — Figma</li>
+          <li>UX/UI Design</li>
+          <li>User Flows & Wireframing</li>
+          <li>Design Systems</li>
+          <li>Branding & Visual Communication</li>
+          <li>Interactive Prototyping</li>
         </ul>
       </div>
       <div class="skill-card reveal">
-        <h3>Build & Run</h3>
-        <div class="bar"></div>
+        <div class="head"><span class="emoji">💻</span><h3>Technology</h3></div>
         <ul>
-          <li><strong>Web & App Development literacy</strong> — speaks engineer fluently</li>
-          <li><strong>Entrepreneurship</strong> — founder/operator of tocoffee & Gouw.id</li>
+          <li>Front-End Development Fundamentals</li>
+          <li>Web & Mobile Product Development</li>
+          <li>Working Closely with Engineering Teams</li>
+          <li>Technical Communication</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="head"><span class="emoji">📈</span><h3>Business</h3></div>
+        <ul>
+          <li>Entrepreneurship</li>
+          <li>Business Operations</li>
+          <li>Customer Experience</li>
+          <li>Retail & F&B Operations</li>
+          <li>Brand Building</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
+<!-- ===== LEARNING ===== -->
+<section class="learning" id="learning">
   <div class="container">
-    <div class="section-label reveal" style="justify-content:center; display:flex;">Contact</div>
-    <h2 class="reveal">Say <span class="grad">halo.</span></h2>
-    <p class="reveal">A product idea, a collaboration, or a debate about why your favorite app feels so right — my inbox is open. I reply with the same precision I ship with.</p>
-    <div class="contact-actions reveal">
-      <a class="btn btn-primary magnetic" href="mailto:teguh.arianto@gmail.com">✉️ &nbsp;Email me</a>
-      <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/teguh-arianto-tjiong/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost magnetic" href="https://www.instagram.com/haloteguh" target="_blank" rel="noopener">Instagram</a>
+    <div class="section-label reveal">Right now</div>
+    <h2 class="section-title reveal">🚀 What I'm <em>learning</em></h2>
+    <p class="reveal" style="max-width:54ch;">A few topics that currently keep me curious:</p>
+    <div class="learn-list">
+      <span class="learn-chip reveal">🤖 AI-assisted product workflows</span>
+      <span class="learn-chip reveal">🔬 Product discovery & experimentation</span>
+      <span class="learn-chip reveal">👥 Building stronger product teams</span>
+      <span class="learn-chip reveal">🏪 Growing physical businesses alongside digital</span>
+      <span class="learn-chip reveal">🧠 Technology, design & human behavior</span>
     </div>
+  </div>
+</section>
+
+<!-- ===== CONNECT ===== -->
+<section class="connect" id="connect">
+  <div class="container">
+    <div class="section-label reveal" style="justify-content:center; display:flex;">Let's connect</div>
+    <h2 class="reveal">Say <span class="grad">halo.</span></h2>
+    <p class="reveal">Whether it's a product idea, a business discussion, a collaboration opportunity, or simply a conversation, I'd be happy to connect.</p>
+    <div class="contact-actions reveal">
+      <a class="btn btn-primary magnetic" href="mailto:teguh.arianto@gmail.com">📧 &nbsp;Email me</a>
+      <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/teguh-arianto-tjiong/" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a class="btn btn-ghost magnetic" href="https://www.instagram.com/haloteguh" target="_blank" rel="noopener">📸 Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COFFEE ===== -->
+<section id="coffee">
+  <div class="coffee reveal">
+    <div class="emoji">☕</div>
+    <h3>Around Serpong?</h3>
+    <p>If you're nearby and enjoy good coffee, feel free to visit tocoffee. It's where I spend part of my time outside product management — meeting people, exchanging ideas, and occasionally talking about products, startups, design, business, or life over a cup of coffee.</p>
+    <a class="btn btn-primary magnetic" href="https://maps.app.goo.gl/JRAu1EZqMJ6We7X17" target="_blank" rel="noopener">📍 &nbsp;Let's meet up</a>
   </div>
 </section>
 
 <footer>
   <img src="haloteguh.jpg" alt="@haloteguh logo">
   <span class="handle">@haloteguh</span>
-  <span>Made with care in Serpong, Indonesia · © 2026 Teguh Arianto</span>
+  <span>Made with ❤️ in Indonesia · © 2026 Teguh Arianto</span>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -471,7 +572,7 @@ function initSite() {
       ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll('a, .attr-row, .skill-card').forEach(el => {
+    document.querySelectorAll('a, .value-card, .skill-card, .biz-card').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
     });
@@ -499,7 +600,7 @@ function initSite() {
       return new THREE.CanvasTexture(cv);
     })();
 
-    const COUNT = isTouch ? 70 : 160;
+    const COUNT = isTouch ? 60 : 150;
     const palette = [0x652d8c, 0x25a5dc, 0x262261];
     const groups = [];
     palette.forEach((color, gi) => {
@@ -541,8 +642,7 @@ function initSite() {
 
     const clock = new THREE.Clock();
     let visible = true;
-    new IntersectionObserver(en => { visible = en[0].isIntersecting; }, { threshold: 0 })
-      .observe(canvas);
+    new IntersectionObserver(en => { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(canvas);
 
     (function animate() {
       requestAnimationFrame(animate);
@@ -561,56 +661,33 @@ function initSite() {
   if (window.gsap && !reduced) {
     gsap.registerPlugin(ScrollTrigger);
 
-    /* Hero entrance */
-    gsap.from('.hero h1 .line > span', {
-      yPercent: 110, duration: 1.1, stagger: 0.09, ease: 'power4.out', delay: 0.15
-    });
-    gsap.fromTo('.hero .reveal',
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.7 }
-    );
+    gsap.fromTo('.hero .reveal', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out', delay: 0.3 });
 
-    /* Waving hand */
-    gsap.to('.wave', {
-      rotation: 18, duration: 0.32, repeat: 5, yoyo: true, ease: 'sine.inOut', delay: 1.1
-    });
-
-    /* Scroll reveals (everything outside hero) */
     gsap.utils.toArray('section .reveal, footer .reveal').forEach(el => {
-      gsap.fromTo(el, { opacity: 0, y: 36 }, {
-        opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      gsap.fromTo(el, { opacity: 0, y: 34 }, {
+        opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
       });
     });
 
-    /* Marquee scroll-linked drift */
     const track = document.getElementById('marquee-track');
     gsap.to(track, { xPercent: -50, ease: 'none', duration: 28, repeat: -1 });
 
-    /* Magnetic buttons (desktop) */
     if (!isTouch) {
       document.querySelectorAll('.magnetic').forEach(btn => {
         btn.addEventListener('mousemove', e => {
           const r = btn.getBoundingClientRect();
-          gsap.to(btn, {
-            '--x': (e.clientX - r.left - r.width / 2) * 0.28 + 'px',
-            '--y': (e.clientY - r.top - r.height / 2) * 0.28 + 'px',
-            duration: 0.3, ease: 'power2.out'
-          });
+          gsap.to(btn, { '--x': (e.clientX - r.left - r.width / 2) * 0.26 + 'px', '--y': (e.clientY - r.top - r.height / 2) * 0.26 + 'px', duration: 0.3, ease: 'power2.out' });
         });
-        btn.addEventListener('mouseleave', () => {
-          gsap.to(btn, { '--x': '0px', '--y': '0px', duration: 0.5, ease: 'elastic.out(1, 0.4)' });
-        });
+        btn.addEventListener('mouseleave', () => { gsap.to(btn, { '--x': '0px', '--y': '0px', duration: 0.5, ease: 'elastic.out(1, 0.4)' }); });
       });
     }
   } else {
-    /* Fallback: show everything */
     document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
     document.querySelectorAll('.hero h1 .line > span').forEach(el => { el.style.transform = 'none'; });
   }
 
-  /* Failsafe: if any content is still hidden a few seconds in (e.g. a slow CDN
-     stalled the entrance animation), force it visible so nothing is ever lost. */
+  /* Failsafe: never leave content hidden if a CDN stalls the entrance animation. */
   setTimeout(function () {
     document.querySelectorAll('.reveal').forEach(el => {
       if (getComputedStyle(el).opacity === '0') { el.style.opacity = 1; el.style.transform = 'none'; }
@@ -619,13 +696,10 @@ function initSite() {
   }, 2600);
 }
 
-/* Run as soon as the animation libraries are available. If the inline script
-   parses before the CDN scripts finish (slow network), wait for window load. */
 if (window.gsap && window.THREE) {
   initSite();
 } else {
   window.addEventListener('load', initSite);
-  /* Hard backstop in case 'load' is delayed or a CDN never resolves. */
   setTimeout(initSite, 3000);
 }
 </script>
